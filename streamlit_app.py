@@ -38,14 +38,14 @@ with col1:
     dpf = st.number_input("Diabetes Pedigree Function", min_value=0.0, max_value=3.0, value=0.5)
     age = st.number_input("Tuổi", min_value=1, max_value=120, value=30)
 
-    if st.button("🚀 Dự đoán"):
+    if st.button(" Dự đoán"):
         input_data = np.array([[glucose, blood_pressure, skin_thickness,
                                 insulin, bmi, dpf, age]])
         prediction = svm_model.predict(input_data)
         probability = svm_model.predict_proba(input_data)[0][1] * 100
 
         with col2:
-            st.subheader("📊 Kết quả")
+            st.subheader(" Kết quả")
             if prediction[0] == 1:
                 st.error(f"⚠️ Bệnh nhân có **nguy cơ TIỂU ĐƯỜNG**\n\nXác suất: {probability:.2f}%")
             else:
@@ -54,7 +54,7 @@ with col1:
             # -----------------------------
             # Biểu đồ chỉ số
             # -----------------------------
-            st.subheader("📈 Biểu đồ các chỉ số")
+            st.subheader(" Biểu đồ các chỉ số")
             features = ["Glucose", "Huyết áp", "Độ dày da", "Insulin", "BMI", "DPF", "Tuổi"]
             values = [glucose, blood_pressure, skin_thickness, insulin, bmi, dpf, age]
 
